@@ -35,7 +35,7 @@ export const ImgSender = ({image}) => {
                 isStitched: res.data.isStitched,
                 isRecieved: !status.isRecieved
             })
-            
+            setIsProcess(false)
         }).catch((err) => {
             console.log(err)
         });
@@ -46,10 +46,6 @@ export const ImgSender = ({image}) => {
         setMode(e.target.value)
     }
 
-    const check = () => {
-        console.log(isProcess)
-        setIsProcess(false)
-    }
     return (
     <div>
         <div className="imageUplodeBox">
@@ -68,9 +64,6 @@ export const ImgSender = ({image}) => {
         <button type='button' onClick={sendPath} className="button">
             読み込まれた画像とモードを確認してStitching
         </button>
-
-        <button type='button' onClick={check}>チェック</button>
-        
         
         {(() => {
             if (isProcess) {
